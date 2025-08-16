@@ -1,33 +1,148 @@
-<section id="signals">
-  <h2>Latest Forex Signals</h2>
-  <div id="signal-list">Loading signals...</div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forex Signals by Phyzil</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: #0a3d62; /* Dark Blue */
+      color: #FFD700;      /* Gold */
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    nav {
+      background: #1e3799; /* Lighter Blue */
+      padding: 12px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    nav a:hover {
+      color: #FFD700;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #0a3d62;
+    }
+    .signal {
+      background: white;
+      border-left: 5px solid #FFD700;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 1.1em;
+    }
+    .contact-links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .telegram {
+      background: #0088cc;
+      color: white;
+    }
+    .telegram:hover {
+      background: #006699;
+    }
+    .whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    .whatsapp:hover {
+      background: #1DA851;
+    }
+    footer {
+      background: #0a3d62;
+      color: #FFD700;
+      text-align: center;
+      padding: 12px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Forex Signals by Phyzil</h1>
+    <p>Your trusted source for free Forex trading signals</p>
+  </header>
 
-<script>
-  // Fetch signals from signals.txt
-  fetch('signals.txt')
-    .then(response => response.text())
-    .then(data => {
-      const lines = data.split('\n');
-      let output = '';
-      lines.forEach(line => {
-        if(line.trim() !== '') {
-          output += `<div class="signal"><p>${line}</p></div>`;
-        }
+  <nav>
+    <a href="#signals">Signals</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="signals">
+    <h2>Latest Forex Signals</h2>
+    <div id="signal-list">Loading signals...</div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Welcome! I provide free Forex trading signals based on careful analysis.  
+      Follow the updates here daily and trade wisely.  
+      Remember: Always manage your risk and use stop loss!
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-links">
+      <a class="telegram" href="https://t.me/Physil_forex" target="_blank">📱 Telegram</a>
+      <a class="whatsapp" href="https://wa.me/233536452498" target="_blank">💬 WhatsApp</a>
+      <p>📧 Email: enninkwamejohnson0572@gmail.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Forex Signals by Phyzil. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Fetch signals from signals.txt
+    fetch('signals.txt')
+      .then(response => response.text())
+      .then(data => {
+        const lines = data.split('\n');
+        let output = '';
+        lines.forEach(line => {
+          if(line.trim() !== '') {
+            output += `<div class="signal"><p>${line}</p></div>`;
+          }
+        });
+        document.getElementById('signal-list').innerHTML = output;
+      })
+      .catch(err => {
+        document.getElementById('signal-list').innerHTML = "⚠️ Could not load signals.";
       });
-      document.getElementById('signal-list').innerHTML = output;
-    })
-    .catch(err => {
-      document.getElementById('signal-list').innerHTML = "⚠️ Could not load signals.";
-    });
-</script>
-header {
-  background: #FFD700;   /* Gold */
-  color: black;
-}
-nav {
-  background: #006400;   /* Dark green */
-}
-footer {
-  background: #FFD700;
-  color: black;
+  </script>
+</body>
+</html>
+
