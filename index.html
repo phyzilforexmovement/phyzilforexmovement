@@ -1,91 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forex Signals by [Your Name]</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-    }
-    header {
-      background: #0a3d62;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    nav {
-      background: #1e3799;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .signal {
-      background: white;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 15px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #0a3d62;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Forex Signals by [Your Name]</h1>
-    <p>Free Forex trading signals and insights</p>
-  </header>
+<section id="signals">
+  <h2>Latest Forex Signals</h2>
+  <div id="signal-list">Loading signals...</div>
+</section>
 
-  <nav>
-    <a href="#signals">Signals</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="signals">
-    <h2>Latest Forex Signals</h2>
-    <div class="signal">
-      <h3>EUR/USD</h3>
-      <p>📈 Buy at 1.0950 | TP: 1.1000 | SL: 1.0920</p>
-    </div>
-    <div class="signal">
-      <h3>GBP/USD</h3>
-      <p>📉 Sell at 1.2700 | TP: 1.2600 | SL: 1.2740</p>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <p>Welcome! I share free Forex signals based on my trading analysis. Follow my updates and trade wisely.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: yourname@email.com</p>
-    <p>Telegram: @yourusername</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Forex Signals by [Your Name]. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+<script>
+  // Fetch signals from signals.txt
+  fetch('signals.txt')
+    .then(response => response.text())
+    .then(data => {
+      const lines = data.split('\n');
+      let output = '';
+      lines.forEach(line => {
+        if(line.trim() !== '') {
+          output += `<div class="signal"><p>${line}</p></div>`;
+        }
+      });
+      document.getElementById('signal-list').innerHTML = output;
+    })
+    .catch(err => {
+      document.getElementById('signal-list').innerHTML = "⚠️ Could not load signals.";
+    });
+</script>
