@@ -1,0 +1,3 @@
+EUR/USD 📈 Buy at 1.0950 | TP: 1.1000 | SL: 1.0920
+GBP/USD 📉 Sell at 1.2700 | TP: 1.2600 | SL: 1.2740
+XAU/USD 📈 Buy at 1900 | TP: 1925 | SL: 1890
